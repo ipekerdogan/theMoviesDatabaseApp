@@ -13,8 +13,10 @@ export class HomeComponent implements OnInit {
   ) {
   }
   bannerResult:any=[];
+  trendingMovieResult:any=[];
   ngOnInit() {
     this.bannerData();
+    this.trendingData();
   }
 
   //bannerdata
@@ -22,6 +24,15 @@ export class HomeComponent implements OnInit {
     this.service.bannerApiData().subscribe((result) =>{
       console.log(result,'bannerresult#');
       this.bannerResult = result.results;
-    })
+    });
   }
+  //trendingdata
+  trendingData() {
+    this.service.trendingMovieApiData().subscribe((result) =>{
+      console.log(result,'trendingresult#');
+      this.trendingMovieResult = result.results;
+    });
+  }
+
+
 }
