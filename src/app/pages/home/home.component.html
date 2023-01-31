@@ -35,7 +35,9 @@
         <img
           src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}"
           class="rowimg largeposter"
-          alt="...">
+          alt="..."
+          [routerLink]="['/movie', t.id]"
+        >
       </ng-container>
     </div>
   </div>
