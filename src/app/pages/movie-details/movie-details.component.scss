@@ -11,3 +11,15 @@ h1 {
 p {
   color: darkgoldenrod;
 }
+
+a {
+  background-color: darkgoldenrod;
+  color: maroon;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: darkgoldenrod;
+  color: maroon;
+  border: 2px solid maroon;
+}

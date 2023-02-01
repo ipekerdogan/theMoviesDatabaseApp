@@ -12,11 +12,15 @@ export class MovieDetailsComponent implements OnInit {
   constructor(private service:MovieApiServiceService, private router: ActivatedRoute) {
   }
   getMovieDetailResult:any;
+  getMovieVideoResult:any;
+  getMovieCastResult:any;
   ngOnInit() {
     let getParamId = this.router.snapshot.paramMap.get('id');
     console.log(getParamId,'getparamid#');
 
     this.getMovie(getParamId);
+    this.getVideo(getParamId);
+    this.getMovieCast(getParamId);
   }
 
   getMovie(id:any) {
@@ -25,5 +29,23 @@ export class MovieDetailsComponent implements OnInit {
       this.getMovieDetailResult = result;
     });
   }
+    getVideo(id:any) {
+      this.service.getMovieVideo(id).subscribe((result) => {
+        console.log(result,'getmovievideo#');
+        result.results.forEach((element:any) => {
+          if (element.type == "Trailer") {
+            this.getMovieVideoResult = element.key;
+          }
+        });
+
+      });
+    }
+
+    getMovieCast(id:any) {
+    this.service.getMovieCast(id).subscribe((result) => {
+      console.log(result, 'getmoviecast#');
+      this.getMovieCastResult = result.cast;
+    })
+    }
 
 }
