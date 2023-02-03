@@ -1,11 +1,21 @@
-import { Component, HostListener } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
+import {GenreResponse} from "./models/genre-response";
+import {MovieApiServiceService} from "./service/movie-api-service.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  constructor(private movieService: MovieApiServiceService) {
+  }
+  ngOnInit() {
+    this.initGenres();
+  }
+
+  genres:GenreResponse = new GenreResponse();
   title = 'theMoviesDatabaseApp';
   navbg:any;
   @HostListener('document: scroll') scrollover(){
@@ -18,5 +28,11 @@ export class AppComponent {
     } else {
       this.navbg = {}
     }
+
+  }
+  initGenres(){
+    this.movieService.getMovieList().subscribe((data)=> {
+      this.genres=data;
+    })
   }
 }

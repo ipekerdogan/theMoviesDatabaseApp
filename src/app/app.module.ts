@@ -9,13 +9,15 @@ import { MovieDetailsComponent } from './pages/movie-details/movie-details.compo
 import {HttpClientModule} from "@angular/common/http";
 import {MovieApiServiceService} from "./service/movie-api-service.service";
 import {ReactiveFormsModule} from "@angular/forms";
+import { MovieListComponent } from './pages/movie-list/movie-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SearchComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    MovieListComponent
   ],
   imports: [
     BrowserModule,
