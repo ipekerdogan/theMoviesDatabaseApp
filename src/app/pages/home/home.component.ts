@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieApiServiceService} from "../../service/movie-api-service.service";
-
+import { Title,Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,8 +9,12 @@ import {MovieApiServiceService} from "../../service/movie-api-service.service";
 export class HomeComponent implements OnInit {
 
   constructor(
-    private service: MovieApiServiceService
+    private service: MovieApiServiceService,
+    private title:Title,
+    private meta:Meta
   ) {
+    this.title.setTitle('Home - theMoviesDatabaseApp');
+    this.meta.updateTag({name:'description',content:'watch online movies'});
   }
   bannerResult:any=[];
   trendingMovieResult:any=[];
