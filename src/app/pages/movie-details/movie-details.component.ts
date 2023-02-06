@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieApiServiceService} from "../../service/movie-api-service.service";
 import {ActivatedRoute} from "@angular/router";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-movie-details',
@@ -9,7 +10,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class MovieDetailsComponent implements OnInit {
 
-  constructor(private service:MovieApiServiceService, private router: ActivatedRoute) {
+  constructor(private service:MovieApiServiceService, private router: ActivatedRoute, private readonly domSanitizer: DomSanitizer) {
   }
   getMovieDetailResult:any;
   getMovieVideoResult:any;
@@ -34,7 +35,7 @@ export class MovieDetailsComponent implements OnInit {
         console.log(result,'getmovievideo#');
         result.results.forEach((element:any) => {
           if (element.type == "Trailer") {
-            this.getMovieVideoResult = element.key;
+            this.getMovieVideoResult = this.domSanitizer.bypassSecurityTrustResourceUrl(`https://www.themoviedb.org/video/play?key=${element.key}`);
           }
         });
 

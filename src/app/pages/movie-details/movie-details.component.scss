@@ -12,6 +12,20 @@ p {
   color: darkgoldenrod;
 }
 
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+}
+
 a {
   background-color: darkgoldenrod;
   color: maroon;
