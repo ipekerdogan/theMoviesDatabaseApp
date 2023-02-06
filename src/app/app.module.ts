@@ -10,6 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MovieApiServiceService} from "./service/movie-api-service.service";
 import {ReactiveFormsModule} from "@angular/forms";
 import { MovieListComponent } from './pages/movie-list/movie-list.component';
+import { NowPlayingComponent } from './pages/now-playing/now-playing.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MovieListComponent } from './pages/movie-list/movie-list.component';
     HomeComponent,
     SearchComponent,
     MovieDetailsComponent,
-    MovieListComponent
+    MovieListComponent,
+    NowPlayingComponent
   ],
   imports: [
     BrowserModule,

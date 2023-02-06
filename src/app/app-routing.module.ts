@@ -4,12 +4,14 @@ import {HomeComponent} from "./pages/home/home.component";
 import {SearchComponent} from "./pages/search/search.component";
 import {MovieDetailsComponent} from "./pages/movie-details/movie-details.component";
 import {MovieListComponent} from "./pages/movie-list/movie-list.component";
+import {NowPlayingComponent} from "./pages/now-playing/now-playing.component";
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
   {path: 'search', component:SearchComponent},
   {path: 'movie/:id', component:MovieDetailsComponent},
-  {path: 'movieList', component:MovieListComponent}
+  {path: 'movieList', component:MovieListComponent},
+  {path: 'nowPlaying', component:NowPlayingComponent}
 ];
 
 @NgModule({

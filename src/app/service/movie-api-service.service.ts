@@ -154,4 +154,8 @@ export class MovieApiServiceService {
     return this.http.get<MovieResponse>(`${this.baseurl}/discover/movie?api_key=${this.apikey}&with_genres=${categoryId}`);
   }
 
+  // nowplayingmovive
+  getNowPlaying(): Observable<any> {
+    return this.http.get(`${this.baseurl}/movie/now_playing?api_key=${this.apikey}`);
+  }
 }

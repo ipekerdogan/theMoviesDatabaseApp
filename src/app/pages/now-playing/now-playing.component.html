@@ -1,0 +1,17 @@
+<div class="row mt-5">
+  <h5 class="row p-5 mt-5" style="color: darkgoldenrod">Now Playing</h5>
+  <div class="col-lg-4" *ngFor="let np of getNowPlayingResult.results">
+    <div class="row p-5">
+      <div class="col-log-3 mt-4 mb-4" *ngIf="np.poster_path">
+        <img
+          src="https://image.tmdb.org/t/p/original/{{ np.poster_path }}"
+          [routerLink]="['/nowPlaying', np.id]"
+        >
+      </div>
+      <div class="col-log-9 mt-4 mb-4">
+        <h5>{{np.original_title}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
